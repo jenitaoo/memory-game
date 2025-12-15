@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fef3e0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #859d6c;
+            font-family: Arial, sans-serif;
+            margin: 2rem 0 1rem 0;
+            font-size: 2rem;
+        }
+    </style>
+
+  <script type="module" crossorigin src="/memory-game/assets/index-CqAdsxuy.js"></script>
+</head>
+
+<body>
+   <!--------------------------- given ------------------------------>
+    <template id="shape-card-template">
+        <style>
+            .card {
+                height: var(--card-height);
+                width: var(--card-width);
+                border: var(--card-border) solid gray;
+                transition: transform 0.6s;
+                transform-style: preserve-3d;
+                position: relative;
+            }
+
+            .card-face-down {
+                transform: rotateY(180deg);
+
+            }
+
+            .card-face-up {
+                transform: rotateY(0deg);
+            }
+
+            .card-back,
+            .card-front {
+                position: absolute;
+                backface-visibility: hidden;
+            }
+
+            .card-back {
+                transform: rotateY(180deg);
+            }
+        </style>
+        <div class="card card-face-down">
+            <svg class="card-front" height="100" width="100">
+                <polygon id="triangle" points="50,11 5,89 95,89" fill-opacity="0" />
+                <rect id="square" height="80" width="80" x="10" y="10" fill-opacity="0" />
+                <circle id="circle" r="40" cx="50" cy="50" fill-opacity="0" />
+            </svg>
+            <svg class="card-back" height="100" width="100" style="background-color: gray;">
+                <text x="33" y="75" font-size="80" fill="black">?</text>
+            </svg>
+        </div>
+    </template>
+
+    <!-- Memory Game Board -->
+    <h1>Memory Card Game</h1>
+    <memory-game size="2x2"></memory-game>
+</body>
+
+</html>
